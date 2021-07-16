@@ -1,4 +1,4 @@
-name: Build OpenGraph.Net
+name: Build and Publish Tmtrcs.Block.DomainBus
 
 # Controls when the action will run. 
 on:
