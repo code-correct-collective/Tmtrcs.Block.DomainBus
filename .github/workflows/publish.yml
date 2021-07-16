@@ -1,4 +1,4 @@
-name: Build and Publish Tmtrcs.Block.DomainBus
+name: Build and Publish to Nuget
 
 # Controls when the action will run. 
 on:
