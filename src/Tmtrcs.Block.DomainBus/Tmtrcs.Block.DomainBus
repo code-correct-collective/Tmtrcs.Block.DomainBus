@@ -13,20 +13,15 @@
         </member>
         <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBase.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.DomainCommandBase"/> class.
+            Record DomainCommandBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.IDomainCommand" />.
             </summary>
-            <param name="correlationId">The correlation identifier.</param>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.IDomainCommand" />
         </member>
         <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBase.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.DomainCommandBase"/> class.
             </summary>
-        </member>
-        <member name="P:Tmtrcs.Block.DomainBus.DomainCommandBase.CorrelationId">
-            <summary>
-            Gets the correlation identifier.
-            </summary>
-            <value>The correlation identifier.</value>
         </member>
         <member name="T:Tmtrcs.Block.DomainBus.DomainCommandBus">
             <summary>
@@ -340,21 +335,16 @@
         </member>
         <member name="M:Tmtrcs.Block.DomainBus.Events.DomainEventBase.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Events.DomainEventBase"/> class.
+            Record DomainEventBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEvent" />.
             </summary>
-            <param name="correlationId">The correlation identifier.</param>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEvent" />
         </member>
         <member name="P:Tmtrcs.Block.DomainBus.Events.DomainEventBase.EventType">
             <summary>
             Gets the type of the event.
             </summary>
             <value>The type of the event.</value>
-        </member>
-        <member name="P:Tmtrcs.Block.DomainBus.Events.DomainEventBase.CorrelationId">
-            <summary>
-            Gets the correlation identifier.
-            </summary>
-            <value>The correlation identifier.</value>
         </member>
         <member name="T:Tmtrcs.Block.DomainBus.Events.DomainEventBus">
             <summary>
@@ -520,20 +510,16 @@
         </member>
         <member name="M:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Queries.QueryBase`1"/> class.
+            Class QueryBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Queries.IDomainQuery`1" />.
             </summary>
-            <param name="correlationId">The correlation identifier.</param>
+            <typeparam name="TResponse">The type of the t response.</typeparam>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Queries.IDomainQuery`1" />
         </member>
         <member name="M:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Queries.QueryBase`1"/> class.
             </summary>
-        </member>
-        <member name="P:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.CorrelationId">
-            <summary>
-            Gets the correlation identifier.
-            </summary>
-            <value>The correlation identifier.</value>
         </member>
     </members>
 </doc>

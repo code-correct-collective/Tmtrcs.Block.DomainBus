@@ -18,6 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F40830BC-E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tmtrcs.Block.DomainBus.Tests", "test\Tmtrcs.Block.DomainBus.Tests\Tmtrcs.Block.DomainBus.Tests.csproj", "{C197B608-6F83-413C-97DB-A65D5B1CE2D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{8DCBC455-3E96-47E9-B8A8-A56AB51DE565}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{AE900203-15F5-4B33-9F92-D526A8C9DF56}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +66,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CF5C71BC-32E8-40A9-91A9-A355D83E5E19} = {2CD068AC-2EC6-4241-B22C-0D6BAE234D26}
 		{C197B608-6F83-413C-97DB-A65D5B1CE2D6} = {F40830BC-E5F0-4C7D-B51A-BD788C601347}
+		{8DCBC455-3E96-47E9-B8A8-A56AB51DE565} = {6BD6CCCE-E9DA-43FF-AAFB-4EE47D000DC9}
+		{AE900203-15F5-4B33-9F92-D526A8C9DF56} = {8DCBC455-3E96-47E9-B8A8-A56AB51DE565}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {933A9272-6380-444E-AA74-EC38ED736F22}
