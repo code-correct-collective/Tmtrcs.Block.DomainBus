@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tmtrcs.Block.DomainBus</name>
+    </assembly>
+    <members>
+        <member name="T:Tmtrcs.Block.DomainBus.DomainCommandBase">
+            <summary>
+            Record DomainCommandBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.IDomainCommand" />.
+            </summary>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.IDomainCommand" />
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.DomainCommandBase"/> class.
+            </summary>
+            <param name="correlationId">The correlation identifier.</param>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.DomainCommandBase"/> class.
+            </summary>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.DomainCommandBase.CorrelationId">
+            <summary>
+            Gets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.DomainCommandBus">
+            <summary>
+            The command bus.
+            </summary>
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.DomainCommandBus.mediator">
+            <summary>
+            The mediator.
+            </summary>
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.DomainCommandBus.logger">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBus.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Tmtrcs.Block.DomainBus.DomainCommandBus})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.DomainCommandBus" /> class.
+            </summary>
+            <param name="mediator">The mediator.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandBus.ExecuteAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Executes the specified command.
+            </summary>
+            <typeparam name="TCommand">The type of the t command.</typeparam>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.DomainCommandHandlerBase`1">
+            <summary>
+            The abstract Domain Command Handler Base class.
+            </summary>
+            <typeparam name="TCommand">The command to handle.</typeparam>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandHandlerBase`1.MediatR#IRequestHandler{TCommand,MediatR#Unit}#Handle(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.DomainCommandHandlerBase`1.Handle(`0,System.Threading.CancellationToken)">
+            <summary>
+            Handle the specified command.
+            </summary>
+            <param name="command">The command to handle.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.IDomainCommand">
+            <summary>
+            Interface <c>ICommand</c>.
+            Implements the <see cref="T:MediatR.IRequest" />.
+            </summary>
+            <seealso cref="T:MediatR.IRequest" />
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.IDomainCommand.CorrelationId">
+            <summary>
+            Gets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.IDomainCommandBus">
+            <summary>
+            Interface <c>ICommandBus</c>.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.IDomainCommandBus.ExecuteAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Executes the specified command.
+            </summary>
+            <typeparam name="TCommand">The type of the t command.</typeparam>
+            <param name="command">The command.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.IDomainCommandHandler`1">
+            <summary>
+            The CommandHandler interface.
+            Implements the <see cref="T:MediatR.IRequestHandler`1" />.
+            </summary>
+            <typeparam name="TCommand">The type of the command.</typeparam>
+            <seealso cref="T:MediatR.IRequestHandler`1" />
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.DomainCommandBuilder">
+            <summary>
+            Class <c>CommandBuilder</c>.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder" />.
+            </summary>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder" />
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainCommandBuilder.#ctor(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.DomainCommandBuilder" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.DomainCommandBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainCommandBuilder.AddCommand``2">
+            <inheritdoc />
+            <summary>
+            Adds the command.
+            </summary>
+            <typeparam name="TCommand">The type of the t command.</typeparam>
+            <typeparam name="TCommandHandler">The type of the t command handler.</typeparam>
+            <returns>A/an <c>ICommandBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder">
+            <summary>
+            Record <c>EventBuilder</c>.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder"/> class.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder.#ctor(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainEventBuilder.AddEvent``2">
+            <summary>
+            Adds the event.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <typeparam name="TEventHandler">The type of the t event handler.</typeparam>
+            <returns>A/an <c>IEventBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.DomainQueryBuilder">
+            <summary>
+            The query builder.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder" />.
+            </summary>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder" />
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainQueryBuilder.#ctor(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.DomainQueryBuilder" /> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.DomainQueryBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.DomainQueryBuilder.AddQuery``3">
+            <summary>
+            Adds the query.
+            </summary>
+            <typeparam name="TQuery">The type of the query.</typeparam>
+            <typeparam name="TQueryResponse">The type of the query response.</typeparam>
+            <typeparam name="TQueryHandler">The type of the query handler.</typeparam>
+            <returns>A/an <c>IQueryBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder">
+            <summary>
+            Interface <c>ICommandBuilder</c>.
+            </summary>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder.AddCommand``2">
+            <summary>
+            Adds the command.
+            </summary>
+            <typeparam name="TCommand">The type of the t command.</typeparam>
+            <typeparam name="TCommandHandler">The type of the t command handler.</typeparam>
+            <returns>A/an <c>ICommandBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.IDomainEventBuilder">
+            <summary>
+            Interface <c>IEventBuilder</c>.
+            </summary>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.IDomainEventBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.IDomainEventBuilder.AddEvent``2">
+            <summary>
+            Adds the event.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <typeparam name="TEventHandler">The type of the t event handler.</typeparam>
+            <returns>A/an <c>IEventBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder">
+            <summary>
+            Interface <c>IQueryBuilder</c>.
+            </summary>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder.AddQuery``3">
+            <summary>
+            Adds the query.
+            </summary>
+            <typeparam name="TQuery">The type of the query.</typeparam>
+            <typeparam name="TQueryResponse">The type of the query response.</typeparam>
+            <typeparam name="TQueryHandler">The type of the query handler.</typeparam>
+            <returns>A/an <c>IQueryBuilder</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration">
+            <summary>
+            Record InProcBusConfiguration.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration"/> class.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration.Services">
+            <summary>
+            Gets the services.
+            </summary>
+            <value>The services.</value>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions">
+            <summary>
+            Class <c>ConfigurationExtensions</c>.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.AddInProcBus(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the in proc bus.
+            </summary>
+            <param name="services">The services.</param>
+            <returns>InProcBusConfiguration.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.AddCommands(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Adds the command support.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns>A/an <c>IServiceCollection</c>.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.And(Tmtrcs.Block.DomainBus.Configuration.IDomainCommandBuilder)">
+            <summary>
+            Ands the specified command builder.
+            </summary>
+            <param name="commandBuilder">The command builder.</param>
+            <returns>InProcBusConfiguration.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.AddEvents(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Adds the events.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns>A/an <c>IEventBuilder</c>.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.And(Tmtrcs.Block.DomainBus.Configuration.IDomainEventBuilder)">
+            <summary>
+            Ands the specified event builder.
+            </summary>
+            <param name="eventBuilder">The event builder.</param>
+            <returns>InProcBusConfiguration.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.AddQueries(Tmtrcs.Block.DomainBus.Configuration.InProcBusConfiguration)">
+            <summary>
+            Adds the query.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns>A/an <c>IQueryBuilder</c>.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Configuration.InProcBusConfigurationExtensions.And(Tmtrcs.Block.DomainBus.Configuration.IDomainQueryBuilder)">
+            <summary>
+            Ands the specified query builder.
+            </summary>
+            <param name="queryBuilder">The query builder.</param>
+            <returns>InProcBusConfiguration.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Events.DomainEventBase">
+            <summary>
+            Record DomainEventBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEvent" />.
+            </summary>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEvent" />
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.DomainEventBase.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Events.DomainEventBase"/> class.
+            </summary>
+            <param name="correlationId">The correlation identifier.</param>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Events.DomainEventBase.EventType">
+            <summary>
+            Gets the type of the event.
+            </summary>
+            <value>The type of the event.</value>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Events.DomainEventBase.CorrelationId">
+            <summary>
+            Gets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Events.DomainEventBus">
+            <summary>
+            Class <c>EventBus</c>.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEventBus" />.
+            </summary>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Events.IDomainEventBus" />
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.Events.DomainEventBus.mediator">
+            <summary>
+            The mediator.
+            </summary>
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.Events.DomainEventBus.logger">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.DomainEventBus.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Tmtrcs.Block.DomainBus.Events.DomainEventBus})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Events.DomainEventBus" /> class.
+            </summary>
+            <param name="mediator">The mediator.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.DomainEventBus.PublishAsync``1(System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+            <summary>
+            Publishes the asynchronous.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <param name="events">The events.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.DomainEventBus.PublishAsync``1(System.Threading.CancellationToken,``0[])">
+            <summary>
+            Publishes the asynchronous.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="events">The events.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Events.IDomainEvent">
+            <summary>
+            Interface <c>IEvent</c>
+            Implements the <see cref="T:MediatR.INotification" />.
+            </summary>
+            <seealso cref="T:MediatR.INotification" />
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Events.IDomainEvent.EventType">
+            <summary>
+            Gets the type of the event.
+            </summary>
+            <value>The type of the event.</value>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Events.IDomainEvent.CorrelationId">
+            <summary>
+            Gets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Events.IDomainEventBus">
+            <summary>
+            Interface <c>IEventBus</c>.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.IDomainEventBus.PublishAsync``1(System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+            <summary>
+            Publishes the asynchronous.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <param name="events">The events.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Events.IDomainEventBus.PublishAsync``1(System.Threading.CancellationToken,``0[])">
+            <summary>
+            Publishes the asynchronous.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="events">The events.</param>
+            <returns>A/an <c>Task</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Events.IDomainEventHandler`1">
+            <summary>
+            Interface <c>IEventHandler</c>
+            Implements the <see cref="T:MediatR.INotificationHandler`1" />.
+            </summary>
+            <typeparam name="TEvent">The type of the t event.</typeparam>
+            <seealso cref="T:MediatR.INotificationHandler`1" />
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus">
+            <summary>
+            Class <c>QueryBus</c>.
+            </summary>
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus.mediator">
+            <summary>
+            The mediator.
+            </summary>
+        </member>
+        <member name="F:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus.logger">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus.#ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Tmtrcs.Block.DomainBus.Queries.DomainQueryBus})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus"/> class.
+            </summary>
+            <param name="mediator">The mediator.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Queries.DomainQueryBus.ExecuteAsync``1(Tmtrcs.Block.DomainBus.Queries.IDomainQuery{``0},System.Threading.CancellationToken)">
+            <summary>
+            Executes the specified query.
+            </summary>
+            <typeparam name="TResponse">The type of the t response.</typeparam>
+            <param name="query">The query.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task&lt;TResponse&gt;</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Queries.IDomainQuery`1">
+            <summary>
+            Interface <c>IQuery</c>
+            Implements the <see cref="T:MediatR.IRequest`1" />.
+            </summary>
+            <typeparam name="TResponse">The type of the response.</typeparam>
+            <seealso cref="T:MediatR.IRequest`1" />
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Queries.IDomainQueryBus">
+            <summary>
+            Interface <c>IQueryBus</c>.
+            </summary>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Queries.IDomainQueryBus.ExecuteAsync``1(Tmtrcs.Block.DomainBus.Queries.IDomainQuery{``0},System.Threading.CancellationToken)">
+            <summary>
+            Executes the specified query.
+            </summary>
+            <typeparam name="TResponse">The type of the t response.</typeparam>
+            <param name="query">The query.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>A/an <c>Task&lt;TResponse&gt;</c>.</returns>
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Queries.IDomainQueryHandler`2">
+            <summary>
+            Interface <c>IQueryHandler</c>
+            Implements the <see cref="T:MediatR.IRequestHandler`2" />.
+            </summary>
+            <typeparam name="TQuery">The type of the t query.</typeparam>
+            <typeparam name="TResponse">The type of the t response.</typeparam>
+            <seealso cref="T:MediatR.IRequestHandler`2" />
+        </member>
+        <member name="T:Tmtrcs.Block.DomainBus.Queries.QueryBase`1">
+            <summary>
+            Class QueryBase.
+            Implements the <see cref="T:Tmtrcs.Block.DomainBus.Queries.IDomainQuery`1" />.
+            </summary>
+            <typeparam name="TResponse">The type of the t response.</typeparam>
+            <seealso cref="T:Tmtrcs.Block.DomainBus.Queries.IDomainQuery`1" />
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Queries.QueryBase`1"/> class.
+            </summary>
+            <param name="correlationId">The correlation identifier.</param>
+        </member>
+        <member name="M:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Tmtrcs.Block.DomainBus.Queries.QueryBase`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Tmtrcs.Block.DomainBus.Queries.QueryBase`1.CorrelationId">
+            <summary>
+            Gets the correlation identifier.
+            </summary>
+            <value>The correlation identifier.</value>
+        </member>
+    </members>
+</doc>

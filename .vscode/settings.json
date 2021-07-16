@@ -1,0 +1,7 @@
+{
+    "csharpfixformat.style.braces.onSameLine": false,
+    "csharpfixformat.style.spaces.beforeParenthesis": false,
+    "cSpell.words": [
+        "Xunit"
+    ]
+}
